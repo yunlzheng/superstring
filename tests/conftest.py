@@ -1,21 +1,8 @@
 # # -*- coding: utf-8 -*-
-# import pytest
+import pytest
 
-# @pytest.fixture(scope='module', params=['testa', 'testb'])
-# def smtp(request):
-#     def fin():
-#         print('teardown smtp')
-#     request.addfinalizer(fin)
-#     print('*' * 20, request.param)
-#     return 1
+from superstring.application import app as real_app
 
-
-# class App(object):
-
-#     def __init__(self, smtp):
-#         self.smtp = smtp
-
-# @pytest.fixture(scope='module')
-# def app(smtp):
-#     return App(smtp)
-
+@pytest.fixture(scope='session')
+def app(request):
+    return real_app.test_client()
