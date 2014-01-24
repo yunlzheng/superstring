@@ -35,6 +35,10 @@ nosetests.xml
 .project
 .pydevproject
 
+# Pycharm
+
+.idea
+
 # 
 superstring/portal/static/bower_components
 
