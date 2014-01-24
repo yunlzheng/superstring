@@ -9,9 +9,9 @@ angular.module('superString', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/home',
+        templateUrl: 'partials/home.html',
         controller: 'HomeCtrl'
-      }).
+      })
       .otherwise({
         redirectTo: '/'
       });
