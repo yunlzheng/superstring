@@ -4,7 +4,7 @@ from flask import Flask
 from superstring.common.database import db
 
 app = Flask(__name__)
-app.config_from_env('SUPERSTRING_PORTAL_SETTINGS')
+app.config.from_envvar('SUPERSTRING_PORTAL_SETTINGS', silent=True)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://<user>:<password>@<host>[:<port>]/<dbname>'
 db.init_app(app)
 
