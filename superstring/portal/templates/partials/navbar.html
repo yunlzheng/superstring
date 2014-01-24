@@ -1,0 +1,15 @@
+<div class="header" ng-controller="NavbarCtrl">
+  <ul class="nav nav-pills pull-left" id='navbar'>
+    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+        <a ng-href="{{item.link}}">{{item.title}}</a>
+    </li>
+  </ul>
+  <form class="navbar-form navbar-right" role="form">
+    <div class="form-group">
+      <input type="text"  class="form-control input-sm">
+    </div>
+    <button type="submit" class="btn btn-success btn-sm">
+      <span class="glyphicon glyphicon-search"></span>搜索</button>
+  </form>
+  <div class="clearfix"></div>
+</div>
