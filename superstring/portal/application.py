@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 
+from superstring.portal.config import DefaultConfig
 from superstring.portal.frontend import *
 from superstring.common.extensions import db
+from superstring.common.extensions import login_manager
 
 DEFAULT_APP_NAME = __name__
 
@@ -25,7 +27,8 @@ def create_app(config=None, app_name=None, blueprints=None):
         app_name = DEFAULT_APP_NAME
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
-
+    if config is None:
+        config = DefaultConfig
     app = Flask(app_name)
     configure_app(app, config)
     configure_extensions(app)
@@ -60,6 +63,7 @@ def configure_extensions(application):
     @param application:
     """
     db.init_app(application)
+    login_manager.init_app(application)
     #cache.init_app(application)
 
 
