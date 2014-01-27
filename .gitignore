@@ -40,5 +40,5 @@ nosetests.xml
 .idea
 
 # 
-superstring/portal/static/bower_components
+superstring/portal/frontend/static/bower_components
 
