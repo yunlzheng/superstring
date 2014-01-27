@@ -26,7 +26,7 @@ def create_app(config=None, app_name=None, blueprints=None):
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
 
-    app = Flask(app_name, static_folder='./frontend/static')
+    app = Flask(app_name)
     configure_app(app, config)
     configure_extensions(app)
     configure_blueprint(app, blueprints)
