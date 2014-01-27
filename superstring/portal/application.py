@@ -1,20 +1,19 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
 
-from superstring.portal.views import *
-from superstring.common.extensions import db, cache
+from superstring.portal.frontend import *
+from superstring.common.extensions import db
 
 DEFAULT_APP_NAME = __name__
 
 __all__ = ['create_app']
 
 DEFAULT_BLUEPRINTS = [
-    (angular, '')
+    (frontend, '')
 ]
 
 
 def create_app(config=None, app_name=None, blueprints=None):
-
     """
     Create flask application instance
     @param config: config object
