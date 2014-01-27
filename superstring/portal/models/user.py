@@ -1,1 +1,3 @@
-__author__ = 'zheng'
+# coding: utf-8
+oAuthTypes = ['github', 'google']
+
