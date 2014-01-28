@@ -4,4 +4,6 @@
 class DefaultConfig(object):
     DEBUG = True
     SECRET_KEY = 'superstring-secret'
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+
+    CACHE_TYPE = 'simple'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///dashbord.db'

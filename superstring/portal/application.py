@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
+from flask.ext.security import SQLAlchemyUserDatastore
 
 from superstring.portal.config import DefaultConfig
 from superstring.portal.frontend import *
 from superstring.common.extensions import db
+from superstring.common.extensions import cache
 from superstring.common.extensions import login_manager
+from superstring.common.extensions import security
+from superstring.portal.security.models import User, Role
 
 DEFAULT_APP_NAME = __name__
 
@@ -14,12 +18,14 @@ DEFAULT_BLUEPRINTS = [
     (frontend, '')
 ]
 
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+
 
 def create_app(config=None, app_name=None, blueprints=None):
     """
-    Create flask application instance
+    Create flask app instance
     @param config: config object
-    @param app_name: flask application name
+    @param app_name: flask app name
     @param blueprints: flask blueprints
     @return: app
     """
@@ -33,38 +39,47 @@ def create_app(config=None, app_name=None, blueprints=None):
     configure_app(app, config)
     configure_extensions(app)
     configure_blueprint(app, blueprints)
+    configure_before_handlers(app)
     return app
 
 
-def configure_app(application, config):
+def configure_app(app, config):
     """
-    Configure application from object and envvar
-    @param application: flask application instance
+    Configure app from object and envvar
+    @param app: flask app instance
     @param config: config object
     """
     if config:
-        application.config.from_object(config)
-    application.config.from_envvar('SUPERSTRING_PORTAL_SETTINGS', silent=True)
+        app.config.from_object(config)
+    app.config.from_envvar('SUPERSTRING_PORTAL_SETTINGS', silent=True)
 
 
-def configure_blueprint(application, blueprints):
+def configure_before_handlers(app):
+
+    @app.before_request
+    def create_user():
+        pass
+
+
+def configure_blueprint(app, blueprints):
     """
     Configure flask blueprint
-    @param application: flask application instance
+    @param app: flask app instance
     @param blueprints: flask blueprint tuple
     """
     for blueprint, url_prefix in blueprints:
-        application.register_blueprint(blueprint, url_prefix=url_prefix)
+        app.register_blueprint(blueprint, url_prefix=url_prefix)
 
 
-def configure_extensions(application):
+def configure_extensions(app):
     """
     Configure flask applicat ext
-    @param application:
+    @param app:
     """
-    db.init_app(application)
-    login_manager.init_app(application)
-    #cache.init_app(application)
+    db.init_app(app)
+    login_manager.init_app(app)
+    security.init_app(app, user_datastore)
+    cache.init_app(app)
 
 
 if __name__ == '__main__':
