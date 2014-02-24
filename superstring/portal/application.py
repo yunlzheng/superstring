@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
+from flask import g
 from flask.ext.security import SQLAlchemyUserDatastore
 
 from superstring.portal.config import DefaultConfig
@@ -56,9 +57,15 @@ def configure_app(app, config):
 
 def configure_before_handlers(app):
 
-    @app.before_request
+    @app.before_first_request
     def create_user():
-        pass
+        db.create_all()
+        user_datastore.create_user(email='admin@123', password='admin123')
+        db.session.commit()
+
+    @app.before_request
+    def authenticate():
+        g.user = getattr(g.identity, 'user', None)
 
 
 def configure_blueprint(app, blueprints):
