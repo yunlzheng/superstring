@@ -1,0 +1,71 @@
+@import "variables";
+
+.container{
+  min-width: @width_main_view;
+}
+
+@media (min-width: 1200px){
+  .container {
+    width: @width_main_view;
+  }
+}
+
+@media (min-width: 992px){
+  .container {
+    width: @width_main_view;
+  }
+}
+
+
+body{
+  background-color: @color_body;
+  font-family: ~'"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu';
+}
+
+.page{
+  background-color: @color_page;
+  min-height: @min_height_mian_view;
+  margin-top:30px;
+  position: relative;
+  width: @column3_width_main_wrapper;
+  .side-menu-wrapper{
+    float:left;
+    background-color: @color_side_menu_wrapper;
+    width: @cloumn3_width_side_menu;
+    min-height: @min_height_mian_view;
+  }
+  .main-wrapper{
+    float: left;
+    padding:10px 20px 10px 20px;
+    position: relative;
+    width: @column3_width_main_wrapper - @cloumn3_width_side_menu - @cloumn3_width_side_window - 1px;
+  }
+  .side-window-wrapper{
+    float: right;
+    width: @cloumn3_width_side_window;
+    min-height: @min_height_mian_view;
+    padding:10px 10px 10px 0px;
+    .panel{
+      padding: 0px 10px 0px 10px;
+    }
+  }
+  .panel{
+    width:100%;
+    min-height: @min_height_panel;
+    margin: 0 auto;
+    margin-top:5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    h2{
+      font-size:16px;
+      font-weight: bold;
+      border-bottom: 1px solid rgb(238, 238, 238);
+      padding-bottom: 10px;
+    }
+
+  }
+
+}

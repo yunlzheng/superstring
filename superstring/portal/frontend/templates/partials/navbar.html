@@ -1,15 +1,22 @@
 <div class="header" ng-controller="NavbarCtrl">
-  <ul class="nav nav-pills pull-left" id='navbar'>
-    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-        <a ng-href="{{item.link}}">{{item.title}}</a>
-    </li>
-  </ul>
-  <form class="navbar-form navbar-right" role="form">
-    <div class="form-group">
-      <input type="text"  class="form-control input-sm">
-    </div>
-    <button type="submit" class="btn btn-success btn-sm">
-      <span class="glyphicon glyphicon-search"></span>搜索</button>
-  </form>
-  <div class="clearfix"></div>
+  <div class="nav-bar">
+      <div class="container">
+        <div class="system-info">Huacloud</div>
+        <div class="login-info">你好，管理员！[修改密码] [退出系统]</div>
+      </div>
+  </div>
+  <div class="nav-menu">
+      <div class="container">
+          <h2 class="system-title pull-left">@Dashbord Beta</h2>
+          <ul class="nav nav-pills pull-left" id='navbar'>
+            <li ng-repeat="item in menu" ng-class="{menu_active: isActive(item.link)}">
+                <a ng-href="{{item.link}}">
+                    <span class="fa {{ item.icon }}"></span>
+                    <span class="text" ng-bind="item.title"></span>
+                </a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+      </div>
+  </div>
 </div>
