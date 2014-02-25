@@ -1,0 +1,22 @@
+<div class="header" ng-controller="NavbarCtrl">
+  <div class="nav-bar">
+      <div class="container">
+        <div class="system-info">Huacloud</div>
+        <div class="login-info">你好，管理员！[<a href="/change">修改密码</a>] [<a href="/logout">退出系统</a>]</div>
+      </div>
+  </div>
+  <div class="nav-menu">
+      <div class="container">
+          <h2 class="system-title pull-left">@Dashbord Beta</h2>
+          <ul class="nav nav-pills pull-left" id='navbar'>
+            <li ng-repeat="item in menu" ng-class="{menu_active: isActive(item.link)}">
+                <a ng-href="{{item.link}}">
+                    <span class="fa {{ item.icon }}"></span>
+                    <span class="text" ng-bind="item.title"></span>
+                </a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+Flask==0.10.1
+Flask-Cache==0.12
+Flask-Login==0.2.9
+Flask-Script==0.6.6
+Flask-Security==1.7.1
+Flask-SQLAlchemy==1.0
+Flask-RESTful==0.2.11
+Jinja2==2.7.1
+MarkupSafe==0.18
+Werkzeug==0.9.4
+itsdangerous==0.23
+mysql-connector-python==1.1.4
+SQLAlchemy==0.9.0
+gevent==1.0
