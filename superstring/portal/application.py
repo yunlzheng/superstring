@@ -40,10 +40,10 @@ def create_app(config=None, app_name=None, blueprints=None):
         config = DefaultConfig
     app = Flask(app_name)
     configure_app(app, config)
+    configure_resources_api()
     configure_extensions(app)
     configure_blueprint(app, blueprints)
     configure_before_handlers(app)
-    configure_resources_api()
     return app
 
 
