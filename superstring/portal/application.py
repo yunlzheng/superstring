@@ -5,10 +5,12 @@ from flask.ext.security import SQLAlchemyUserDatastore
 
 from superstring.portal.config import DefaultConfig
 from superstring.portal.frontend import *
+from superstring.portal.resources import *
 from superstring.common.extensions import db
 from superstring.common.extensions import cache
 from superstring.common.extensions import login_manager
 from superstring.common.extensions import security
+from superstring.common.extensions import api
 from superstring.portal.security.models import User, Role
 
 DEFAULT_APP_NAME = __name__
@@ -41,6 +43,7 @@ def create_app(config=None, app_name=None, blueprints=None):
     configure_extensions(app)
     configure_blueprint(app, blueprints)
     configure_before_handlers(app)
+    configure_resources_api()
     return app
 
 
@@ -56,12 +59,15 @@ def configure_app(app, config):
 
 
 def configure_before_handlers(app):
-
     @app.before_first_request
     def create_user():
-        db.create_all()
-        user_datastore.create_user(email='admin@123', password='admin123')
-        db.session.commit()
+        #try:
+        #    db.create_all()
+        #    user_datastore.create_user(email='admin@123', password='admin123')
+        #    db.session.commit()
+        #except Exception as ex:
+        #    pass
+        pass
 
     @app.before_request
     def authenticate():
@@ -78,6 +84,12 @@ def configure_blueprint(app, blueprints):
         app.register_blueprint(blueprint, url_prefix=url_prefix)
 
 
+def configure_resources_api():
+
+    api.add_resource(VolumesAPI, '/api/volumes')
+    api.add_resource(VolumeAPI, '/volume/api/v1.0/volumes/<int:id>')
+
+
 def configure_extensions(app):
     """
     Configure flask applicat ext
@@ -87,6 +99,9 @@ def configure_extensions(app):
     login_manager.init_app(app)
     security.init_app(app, user_datastore)
     cache.init_app(app)
+
+    api.init_app(app)
+
 
 
 if __name__ == '__main__':

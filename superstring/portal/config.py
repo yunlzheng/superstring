@@ -12,3 +12,4 @@ class DefaultConfig(object):
     SECURITY_LOGOUT_URL = '/logout'
 
     SECURITY_REGISTERABLE = True
+    SECURITY_CHANGEABLE = True
