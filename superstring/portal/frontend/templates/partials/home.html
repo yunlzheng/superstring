@@ -1,19 +1,139 @@
 <div class="page page-cloumn-3" id="page-home">
     <div ng-include="'partials/side-menu.html'"></div>
     <div class="main-wrapper">
-        <div class="panel">
-            <h2>标题一</h2>
+        <div class="panel" id="panel-demo-1">
+            <div class="panel-wrapper">
+                <div id="demo-chart" class="chart">
+                    <h3>图表</h3>
+                    <div ui-chart="data" chart-options="chartOptions"></div>
+                    <button class="btn btn-primary">查看</button>
+                </div>
+                <div id="demo-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Field1</th>
+                                <th>Field2</th>
+                                <th>Field3</th>
+                                <th>Field4</th>
+                                <th>Field5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td_checkbox"><span class="check_box fa fa-circle "></span></td>
+                                <td>Value1</td>
+                                <td>Value2</td>
+                                <td>Value3</td>
+                                <td>Value4</td>
+                                <td>Value5 <i class="fa  fa-chevron-circle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="td_checkbox"><span class="check_box fa fa-circle-o"></span></td>
+                                <td>Value1</td>
+                                <td>Value2</td>
+                                <td>Value3</td>
+                                <td>Value4</td>
+                                <td>Value5 <i class="fa fa-chevron-circle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="td_checkbox"><span class="check_box fa fa-circle-o"></span></td>
+                                <td>Value1</td>
+                                <td>Value2</td>
+                                <td>Value3</td>
+                                <td>Value4</td>
+                                <td>Value5 <i class="fa fa-chevron-circle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="td_checkbox"><span class="check_box fa fa-circle-o"></span></td>
+                                <td>Value1</td>
+                                <td>Value2</td>
+                                <td>Value3</td>
+                                <td>Value4</td>
+                                <td>Value5 <i class="fa fa-chevron-circle-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="td_checkbox"><span class="check_box fa fa-circle-o"></span></td>
+                                <td>Value1</td>
+                                <td>Value2</td>
+                                <td>Value3</td>
+                                <td>Value4</td>
+                                <td>Value5 <i class="fa fa-chevron-circle-right"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clearfix"></div>
+            </div>
         </div>
         <div class="panel">
-            <h2>标题一</h2>
+            <h2>表格</h2>
+            <div class="panel-wrapper">
+                <table class="table table-bordered">
+                    <thead>
+                     <tr>
+                        <th></th>
+                        <th>Field1</th>
+                        <th>Field2</th>
+                        <th>Field3</th>
+                        <th>Field4</th>
+                        <th>Field5</th>
+                    </tr>
+                   </thead>
+                   <tbody>
+                    <tr>
+                        <td class="td_checkbox"><span class="check_box fa fa-circle-o"></span></td>
+                        <td>Value1</td>
+                        <td>Value2</td>
+                        <td>Value3</td>
+                        <td>Value4</td>
+                        <td>Value5 <i class="fa fa-chevron-circle-right"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="td_checkbox"><span class="check_box fa fa-circle-o"></span></td>
+                        <td>Value1</td>
+                        <td>Value2</td>
+                        <td>Value3</td>
+                        <td>Value4</td>
+                        <td>Value5 <i class="fa fa-chevron-circle-right"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="td_checkbox"><span class="check_box fa fa-circle-o"></span></td>
+                        <td>Value1</td>
+                        <td>Value2</td>
+                        <td>Value3</td>
+                        <td>Value4</td>
+                        <td>Value5 <i class="fa fa-chevron-circle-right"></i></td>
+                    </tr>
+                   </tbody>
+                </table>
+            </div>
         </div>
         <div class="panel">
-            <h2>标题一</h2>
+            <h2>折线图</h2>
+            <div class="panel-wrapper">
+                <div ui-chart="data2" chart-options="lineOptions"></div>
+            </div>
         </div>
+
     </div>
     <div class="side-window-wrapper">
         <div class="panel">
             <h2>标题二</h2>
+            <div class="panel-wrapper"></div>
+        </div>
+        <div class="panel">
+            <h2>标题二</h2>
+            <div class="panel-wrapper"></div>
+        </div>
+        <div class="panel">
+            <h2>标题二</h2>
+            <div class="panel-wrapper"></div>
+        </div>
+        <div class="panel">
+            <h2>标题二</h2>
+            <div class="panel-wrapper"></div>
         </div>
     </div>
     <div class="clearfix"></div>

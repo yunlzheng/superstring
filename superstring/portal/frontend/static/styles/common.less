@@ -22,27 +22,42 @@ body{
   font-family: ~'"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu';
 }
 
+.btn-primary{
+  background-color: @color_nav_menu_item_border;
+}
+
 .page{
   background-color: @color_page;
   min-height: @min_height_mian_view;
   margin-top:30px;
   position: relative;
   width: @column3_width_main_wrapper;
+
+  &.page-cloumn-2{
+    .side-menu-wrapper{}
+    .main-wrapper{
+      width: @column3_width_main_wrapper - @cloumn3_width_side_window + 60px;
+    }
+  }
+
   .side-menu-wrapper{
     float:left;
     background-color: @color_side_menu_wrapper;
     width: @cloumn3_width_side_menu;
-    min-height: @min_height_mian_view;
     .side-menu{
       color:#fff;
       list-style: none;
       margin: 0px;
-      padding: 0px 15px 15px 20px;
+      padding:0px;
+      :hover{
+          background-color: @color_side_menu_active;
+        }
       li{
         border-bottom: 1px solid rgb(90, 90, 90);
-        padding: 5px;
+        padding: 15px;
         padding-top: 20px;
         padding-bottom: 20px;
+
         h2{
           font-size:14px;
           list-style: none;
@@ -74,6 +89,19 @@ body{
     padding:10px 20px 10px 20px;
     position: relative;
     width: @column3_width_main_wrapper - @cloumn3_width_side_menu - @cloumn3_width_side_window - 1px;
+    .wrapper{
+      .panel{
+        &.span6{
+          width:49%;
+        }
+        &.span4{
+          width:34%
+        }
+        &.span8{
+          width: 65%;
+        }
+      }
+    }
   }
   .side-window-wrapper{
     float: right;
@@ -100,7 +128,46 @@ body{
       border-bottom: 1px solid rgb(238, 238, 238);
       padding-bottom: 10px;
     }
+    .panel-wrapper{
+      padding: 10px 10px 10px 0px;
+    }
 
   }
 
+}
+
+.table{
+  border: none;
+  thead{
+    tr{
+      background-color: @color_nav_menu;
+      color: rgb(255, 255, 255);
+      th{
+        font-weight: normal;
+        border: none;
+      }
+    }
+  }
+  tbody{
+    tr{
+      .check_box{
+        color: @color_nav_menu;
+      }
+      td{
+        padding: 6px 10px;
+        font-size:13px;
+        vertical-align: middle;
+        word-break: keep-all;
+        white-space:nowrap;
+        overflow:hidden;
+        &.td_checkbox{
+          border:none;
+        }
+        .fa{
+          color: rgb(196, 197, 199);
+          font-size: 20px;
+        }
+      }
+    }
+  }
 }
