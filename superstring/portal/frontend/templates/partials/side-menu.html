@@ -1,46 +1,13 @@
-<div class="side-menu-wrapper">
-    <ul class="side-menu">
+<div class="side-menu-wrapper" ng-controller="NavbarCtrl as ctrl">
+    <ul class="side-menu" ng-repeat="item in ctrl.menus">
     	<li>
-    		<h2>首页</h2>
+    		<h2>{{ item.title }}</h2>
     		<ul>
-    			<li>统计</li>
-    			<li>任务</li>
+    			<li ng-repeat="sub in item.menus">
+                    <a ng-href="sub.link">{{ sub.title }}</a>
+                </li>
     		</ul>
     	</li>
-    	<li>
-    		<h2>计算</h2>
-    		<ul>
-    			<li>虚拟机</li>
-    			<li>规格</li>
-    			<li>快照</li>
-    		</ul>
-    	</li>
-    	<li>
-    		<h2>存储</h2>
-    		<ul>
-    			<li>存储卷</li>
-    			<li>备份</li>
-    			<li>快照</li>
-    		</ul>
-    	</li>
-    	<li>
-    		<h2>网络</h2>
-    		<ul>
-    			<li>虚拟网络</li>
-    			<li>路由</li>
-    			<li>安全组</li>
-    		</ul>
-    	</li>
-    	<li>
-    		<h2>文档</h2>
-    		<li>帮组中心</li>
-    	</li>
-    	<li>
-    		<h2>设置</h2>
-    		<ul>
-    			<li>通知</li>
-    			<li>修改密码</li>
-    		</ul>
-    	</li>
+
     </ul>
 </div>

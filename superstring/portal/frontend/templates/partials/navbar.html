@@ -1,4 +1,4 @@
-<div class="header" ng-controller="NavbarCtrl">
+<div class="header" ng-controller="NavbarCtrl as ctrl">
   <div class="nav-bar">
       <div class="container">
         <div class="system-info">Huacloud</div>
@@ -9,7 +9,7 @@
       <div class="container">
           <h2 class="system-title pull-left">@Dashbord Beta</h2>
           <ul class="nav nav-pills pull-left" id='navbar'>
-            <li ng-repeat="item in menu" ng-class="{menu_active: isActive(item.link)}">
+            <li ng-repeat="item in ctrl.menus" ng-class="{menu_active: ctrl.isActive(item.link)}">
                 <a ng-href="{{item.link}}">
                     <span class="fa {{ item.icon }}"></span>
                     <span class="text" ng-bind="item.title"></span>
