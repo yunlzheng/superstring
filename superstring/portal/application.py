@@ -6,6 +6,7 @@ from flask.ext.security import SQLAlchemyUserDatastore
 from superstring.portal.config import DefaultConfig
 from superstring.portal.frontend import *
 from superstring.portal.resources import *
+from superstring.common.extensions import babel
 from superstring.common.extensions import db
 from superstring.common.extensions import cache
 from superstring.common.extensions import login_manager
@@ -40,7 +41,6 @@ def create_app(config=None, app_name=None, blueprints=None):
         config = DefaultConfig
     app = Flask(app_name)
     configure_app(app, config)
-    configure_resources_api()
     configure_extensions(app)
     configure_blueprint(app, blueprints)
     configure_before_handlers(app)
@@ -84,17 +84,12 @@ def configure_blueprint(app, blueprints):
         app.register_blueprint(blueprint, url_prefix=url_prefix)
 
 
-def configure_resources_api():
-
-    api.add_resource(VolumesAPI, '/api/volumes')
-    api.add_resource(VolumeAPI, '/volume/api/v1.0/volumes/<int:id>')
-
-
 def configure_extensions(app):
     """
     Configure flask applicat ext
     @param app:
     """
+    babel.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
     security.init_app(app, user_datastore)
@@ -102,7 +97,8 @@ def configure_extensions(app):
 
     api.init_app(app)
 
-
+    # Fix Flask-Restful Bug
+    setattr(api, 'app', app)
 
 if __name__ == '__main__':
     app = create_app().run(debug=True)

@@ -1,22 +1,81 @@
 # coding: utf-8
+from flask.ext.restful import reqparse
+from flask.ext.restful import Resource
+from flask.ext.login import login_required
+from flask.ext.babel import gettext as _
+from superstring.common.extensions import api
 
-from flask.ext import restful
 
+class VolumesAPI(Resource):
+    decorators = [login_required]
 
-class VolumesAPI(restful.Resource):
     def get(self):
-        pass
+        return [{
+                    "status": "available",
+                    "usage": 0,
+                    "display_name": None,
+                    "attachments": [],
+                    "availability_zone": "nova",
+                    "bootable": "false",
+                    "created_at": "2014-02-18T05:24:33.281325",
+                    "pool_id": 1,
+                    "display_description": None,
+                    "os-vol-host-attr:host": "cc.huacloud.demo",
+                    "volume_type": "None",
+                    "snapshot_id": None,
+                    "source_volid": None,
+                    "os-vol-mig-status-attr:name_id": None,
+                    "metadata": {
+                        "null": None
+                    },
+                    "id": "27d6ccc6-f278-45fc-bde7-7a4d07ecd29f",
+                    "os-vol-mig-status-attr:migstat": None,
+                    "size": 1
+                }]
 
     def post(self):
         pass
 
 
-class VolumeAPI(restful.Resource):
+class VolumeAPI(Resource):
+    #decorators = [login_required]
+
+    def __init__(self):
+        self.reqparse = reqparse.RequestParser()
+        self.reqparse.add_argument('title', type=str, required=True, help=_('No task title provided'), location='json')
+        self.reqparse.add_argument('description', type=str, default="", location='json')
+        super(VolumeAPI, self).__init__()
+
     def get(self, id):
-        pass
+        return {
+            "status": "available",
+            "usage": 0,
+            "display_name": None,
+            "attachments": [],
+            "availability_zone": "nova",
+            "bootable": "false",
+            "created_at": "2014-02-18T05:24:33.281325",
+            "pool_id": 1,
+            "display_description": None,
+            "os-vol-host-attr:host": "cc.huacloud.demo",
+            "volume_type": "None",
+            "snapshot_id": None,
+            "source_volid": None,
+            "os-vol-mig-status-attr:name_id": None,
+            "metadata": {
+                "null": None
+            },
+            "id": id,
+            "os-vol-mig-status-attr:migstat": None,
+            "size": 1
+        }
 
     def put(self, id):
-        pass
+        args = self.reqparse.parse_args()
 
     def delete(self, id):
         pass
+
+
+api.add_resource(VolumesAPI, '/api/volumes', endpoint='tasks')
+api.add_resource(VolumeAPI, '/api/volumes/<int:id>', endpoint='task')

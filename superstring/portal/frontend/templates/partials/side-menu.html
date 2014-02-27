@@ -1,13 +1,12 @@
 <div class="side-menu-wrapper" ng-controller="NavbarCtrl as ctrl">
-    <ul class="side-menu" ng-repeat="item in ctrl.menus">
+    <ul class="side-menu" ng-repeat="item in ctrl.menus" ng-class="{menu_active: ctrl.isActive(item.link)}">
     	<li>
-    		<h2>{{ item.title }}</h2>
+    		<h2><a ng-href="{{ item.link }}">{{ item.title }}</a></h2>
     		<ul>
     			<li ng-repeat="sub in item.menus">
                     <a ng-href="{{ sub.link }}">{{ sub.title }}</a>
                 </li>
     		</ul>
     	</li>
-
     </ul>
 </div>

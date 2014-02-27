@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from flask.ext.babel import Babel
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.cache import Cache
 from flask.ext.login import LoginManager
@@ -13,4 +14,5 @@ login_manager = LoginManager()
 security = Security()
 user_datastore = object()
 api = Api()
+babel = Babel()
 

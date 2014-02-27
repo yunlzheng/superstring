@@ -19,6 +19,7 @@
 
 body{
   background-color: @color_body;
+  background-image: url('/statics/images/bg.gif');
   font-family: ~'"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu';
 }
 
@@ -32,6 +33,7 @@ body{
   margin-top:30px;
   position: relative;
   width: @column3_width_main_wrapper;
+
 
   &.page-cloumn-2{
     .side-menu-wrapper{}
@@ -49,9 +51,12 @@ body{
       list-style: none;
       margin: 0px;
       padding:0px;
-      :hover{
+      &.menu_active{
+        background-color: @color_side_menu_active;
+      }
+      &:hover{
           background-color: @color_side_menu_active;
-        }
+      }
       li{
         border-bottom: 1px solid rgb(90, 90, 90);
         padding: 15px;
@@ -64,6 +69,9 @@ body{
           font-weight: bold;
           margin-top:5px;
           margin-bottom: 5px;
+          a{
+            color: #fff;
+          }
         }
         ul{
           margin: 0px;
@@ -89,6 +97,13 @@ body{
     padding:10px 20px 10px 20px;
     position: relative;
     width: @column3_width_main_wrapper - @cloumn3_width_side_menu - @cloumn3_width_side_window - 1px;
+
+    h1{
+      font-size:16px;
+      font-weight: bold;
+      border-bottom: 1px solid rgb(238, 238, 238);
+      padding-bottom: 10px;
+    }
     .wrapper{
       .panel{
         &.span6{
@@ -106,7 +121,7 @@ body{
   .side-window-wrapper{
     float: right;
     width: @cloumn3_width_side_window;
-    min-height: @min_height_mian_view;
+
     padding:10px 10px 10px 0px;
     .panel{
       padding: 0px 10px 0px 10px;
@@ -152,6 +167,14 @@ body{
     tr{
       .check_box{
         color: @color_nav_menu;
+        background-size: cover;
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-image: url('../images/unchecked_checkbox.png');
+        &.checked{
+          background-image: url('../images/checked_checkbox.png');
+        }
       }
       td{
         padding: 6px 10px;

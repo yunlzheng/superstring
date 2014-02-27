@@ -13,6 +13,7 @@
 }
 body {
   background-color: #e6e6e6;
+  background-image: url('/statics/images/bg.gif');
   font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
 }
 .btn-primary {
@@ -39,7 +40,10 @@ body {
   margin: 0px;
   padding: 0px;
 }
-.page .side-menu-wrapper .side-menu :hover {
+.page .side-menu-wrapper .side-menu.menu_active {
+  background-color: #242328;
+}
+.page .side-menu-wrapper .side-menu:hover {
   background-color: #242328;
 }
 .page .side-menu-wrapper .side-menu li {
@@ -54,6 +58,9 @@ body {
   font-weight: bold;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+.page .side-menu-wrapper .side-menu li h2 a {
+  color: #fff;
 }
 .page .side-menu-wrapper .side-menu li ul {
   margin: 0px;
@@ -76,6 +83,12 @@ body {
   position: relative;
   width: 619px;
 }
+.page .main-wrapper h1 {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 10px;
+}
 .page .main-wrapper .wrapper .panel.span6 {
   width: 49%;
 }
@@ -88,7 +101,6 @@ body {
 .page .side-window-wrapper {
   float: right;
   width: 220px;
-  min-height: 800px;
   padding: 10px 10px 10px 0px;
 }
 .page .side-window-wrapper .panel {
@@ -127,6 +139,14 @@ body {
 }
 .table tbody tr .check_box {
   color: #0190d4;
+  background-size: cover;
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-image: url('../images/unchecked_checkbox.png');
+}
+.table tbody tr .check_box.checked {
+  background-image: url('../images/checked_checkbox.png');
 }
 .table tbody tr td {
   padding: 6px 10px;

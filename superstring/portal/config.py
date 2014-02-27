@@ -13,3 +13,6 @@ class DefaultConfig(object):
 
     SECURITY_REGISTERABLE = True
     SECURITY_CHANGEABLE = True
+
+    #i18n
+    BABEL_DEFAULT_LOCALE = 'en'

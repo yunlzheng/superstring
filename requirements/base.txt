@@ -1,10 +1,11 @@
 Flask==0.10.1
+Flask-Babel==0.9
 Flask-Cache==0.12
 Flask-Login==0.2.9
+Flask-RESTful==0.2.11
 Flask-Script==0.6.6
 Flask-Security==1.7.1
 Flask-SQLAlchemy==1.0
-Flask-RESTful==0.2.11
 Jinja2==2.7.1
 MarkupSafe==0.18
 Werkzeug==0.9.4
