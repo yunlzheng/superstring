@@ -8,6 +8,9 @@ class DefaultConfig(object):
     CACHE_TYPE = 'simple'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///dashbord.db'
 
+    ## Flask-Security
+    #SECURITY_PASSWORD_HASH = 'bcrypt'
+
     SECURITY_LOGIN_URL = '/login'
     SECURITY_LOGOUT_URL = '/logout'
 
