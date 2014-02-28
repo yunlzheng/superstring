@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+
+NOVA_TOKEN_CACHE = {}
+CINDER_TOKEN_CACHE = {}
+GLANCE_TOKEN_CACHE = {}
+QUANTUM_TOKEN_CACHE = {}

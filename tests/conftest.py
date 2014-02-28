@@ -1,8 +1,9 @@
 # # -*- coding: utf-8 -*-
 import pytest
+#
+from superstring.portal.application import create_app
 
-from superstring.application import app as real_app
 
 @pytest.fixture(scope='session')
 def app(request):
-    return real_app.test_client()
+    return create_app().test_client()
