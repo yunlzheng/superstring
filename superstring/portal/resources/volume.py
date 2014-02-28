@@ -4,6 +4,7 @@ from flask.ext.restful import Resource
 from flask.ext.login import login_required
 from flask.ext.babel import gettext as _
 from superstring.common.extensions import api
+from superstring.portal import signals
 
 
 class VolumesAPI(Resource):
@@ -34,7 +35,9 @@ class VolumesAPI(Resource):
                 }]
 
     def post(self):
-        pass
+        signals.volume_create_start.send()
+        # TODO: 逻辑代码
+        signals.volume_create_end.send()
 
 
 class VolumeAPI(Resource):

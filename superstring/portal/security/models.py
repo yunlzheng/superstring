@@ -1,7 +1,9 @@
 # coding: utf-8
+from flask import current_app
 from flask.ext.security import RoleMixin, UserMixin
-
+from flask.ext.security import signals
 from superstring.common.extensions import db
+
 
 # Define models
 roles_users = db.Table('roles_users',
@@ -23,3 +25,10 @@ class User(db.Model, UserMixin):
     confirmed_at = db.Column(db.DateTime())
     roles = db.relationship('Role', secondary=roles_users,
                             backref=db.backref('users', lazy='dynamic'))
+
+
+#------------------SIGNALS-----------------#
+def log_user_login(sender):
+    current_app.logger.info('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Info')
+
+signals.login_instructions_sent.connect(log_user_login)

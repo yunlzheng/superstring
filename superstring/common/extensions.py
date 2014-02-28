@@ -12,7 +12,6 @@ db = SQLAlchemy()
 cache = Cache()
 login_manager = LoginManager()
 security = Security()
-user_datastore = object()
 api = Api()
 babel = Babel()
 

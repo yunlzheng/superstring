@@ -22,9 +22,6 @@ DEFAULT_BLUEPRINTS = [
     (frontend, '')
 ]
 
-user_datastore = SQLAlchemyUserDatastore(db, User, Role)
-
-
 def create_app(config=None, app_name=None, blueprints=None):
     """
     Create flask app instance
@@ -92,7 +89,7 @@ def configure_extensions(app):
     babel.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
-    security.init_app(app, user_datastore)
+    security.init_app(app, SQLAlchemyUserDatastore(db, User, Role))
     cache.init_app(app)
 
     api.init_app(app)
